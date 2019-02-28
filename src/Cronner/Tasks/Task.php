@@ -109,5 +109,14 @@ final class Task
 
 		return $this->parameters;
 	}
+	
+	/**
+	 * @return DateTime|null
+	 */
+	public function getLastRun()
+	{
+		$this->timestampStorage->setTaskName($this->getName());
+		return $this->timestampStorage->loadLastRunTime();
+	}
 
 }
